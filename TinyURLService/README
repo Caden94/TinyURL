@@ -1,3 +1,9 @@
+0. API design
+GET "/" with a shortURL parameter in the query string.
+-> return longURL
+GET "/" with a longURL parameter in the query string.
+-> return shortURL
+
 1. RESTful API design (Do I need REST?)
 POST "/shortURL" with a shortURL parameter in the query string.
 -> return 307 response with JSON in the body { "longURL" : "www.google.com" }
