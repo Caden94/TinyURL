@@ -1,8 +1,10 @@
-0. API design
+0. In-memory
 GET "/" with a shortURL parameter in the query string.
 -> return longURL
+e.g. http://localhost:8080/?shortURL=1
 GET "/" with a longURL parameter in the query string.
 -> return shortURL
+e.g. http://localhost:8080/?longURL=www.google.com
 
 1. RESTful API design (Do I need REST?)
 POST "/shortURL" with a shortURL parameter in the query string.
