@@ -1,0 +1,18 @@
+1. RESTful API design
+GET "/" with a shortURL parameter in the query string.
+-> return 307 response with JSON in the body { "longURL" : "www.google.com" }
+PUT "/" with a longURL parameter in the query string.
+-> return 200 response with JSON in the body { "shortURL" : "0123E2" }
+
+2. Create a resource representation class
+TinyURL
+
+3. Create a resource controller
+
+4. Database Design
+
+5. Create database connection
+
+6. Make the application executable
+
+7. Test the application
