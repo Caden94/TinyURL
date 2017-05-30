@@ -42,7 +42,6 @@ public class TinyURLServiceImpl implements TinyURLService {
     public String write(String longURL) {
         // corner case
         if (longURL == null) {
-            // System.out.println("ERROR: longURL is null");
             return null;
         }
         // to do
@@ -50,7 +49,6 @@ public class TinyURLServiceImpl implements TinyURLService {
             return longToShortMap.get(longURL);
         }
         String shortURL = generateShortURL();
-        // System.out.println("DEBUG: shortURL is " + shortURL);
         longToShortMap.put(longURL, shortURL);
         shortToLongMap.put(shortURL, longURL);
         return shortURL;
@@ -65,7 +63,6 @@ public class TinyURLServiceImpl implements TinyURLService {
     // generateShortURL
     public String generateShortURL() {
         int size = shortToLongMap.size();
-        // System.out.println("DEBUG: map.size() is " + size);
         return convertTo62(size);
     }
 

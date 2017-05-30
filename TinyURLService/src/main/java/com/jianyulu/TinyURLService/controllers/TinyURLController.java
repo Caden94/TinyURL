@@ -25,11 +25,10 @@ public class TinyURLController {
         if (!shortURL.equals("without shortURL")) {
             // exsist shortURL
             longURL = tinyURLService.read(shortURL);
-            // System.out.println("shortURL: " + shortURL + " longURL: " + longURL);
             return longURL;
         } else if (!longURL.equals("without longURL")){
+            // exsist longURL
             shortURL = tinyURLService.write(longURL);
-            // System.out.println("shortURL: " + shortURL + " longURL: " + longURL);
             return shortURL;
         } else {
             return "without valid parameter";
