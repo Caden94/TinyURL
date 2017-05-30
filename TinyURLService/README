@@ -1,7 +1,7 @@
-1. RESTful API design
-GET "/" with a shortURL parameter in the query string.
+1. RESTful API design (Do I need REST?)
+POST "/shortURL" with a shortURL parameter in the query string.
 -> return 307 response with JSON in the body { "longURL" : "www.google.com" }
-PUT "/" with a longURL parameter in the query string.
+POST "/longURL" with a longURL parameter in the query string.
 -> return 200 response with JSON in the body { "shortURL" : "0123E2" }
 
 2. Create a resource representation class
