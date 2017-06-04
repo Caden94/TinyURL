@@ -1,4 +1,4 @@
-package com.jianyulu.TinyURLService.models;
+package com.jianyulu.TinyURLService.model;
 
 /**
  * Created by lujianyu on 6/4/17.

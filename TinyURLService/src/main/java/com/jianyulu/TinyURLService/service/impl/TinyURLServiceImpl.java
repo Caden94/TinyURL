@@ -1,6 +1,6 @@
-package com.jianyulu.TinyURLService.services;
+package com.jianyulu.TinyURLService.service.impl;
 
-import org.springframework.stereotype.Component;
+import com.jianyulu.TinyURLService.service.TinyURLService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -57,7 +57,7 @@ public class TinyURLServiceImpl implements TinyURLService {
     // read
     public String read(String shortURL) {
         String longURL = shortToLongMap.get(shortURL);
-        return longURL == null ? "shortURL doesn't exist" : longURL ;
+        return longURL == null ? "shortURL doesn't exist" : longURL;
     }
 
     // generateShortURL

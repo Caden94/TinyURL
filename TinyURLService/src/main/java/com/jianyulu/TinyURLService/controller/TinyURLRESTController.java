@@ -1,7 +1,7 @@
-package com.jianyulu.TinyURLService.controllers;
+package com.jianyulu.TinyURLService.controller;
 
-import com.jianyulu.TinyURLService.models.TinyURL;
-import com.jianyulu.TinyURLService.services.TinyURLService;
+import com.jianyulu.TinyURLService.model.TinyURL;
+import com.jianyulu.TinyURLService.service.TinyURLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by lujianyu on 5/29/17.
  */
 @RestController
-public class TinyURLController {
+public class TinyURLRESTController {
 
     @Autowired
     private TinyURLService tinyURLService;
