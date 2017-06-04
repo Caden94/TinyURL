@@ -1,21 +1,34 @@
-0. In-memory
-GET "/" with a shortURL parameter in the query string.
--> return longURL
-e.g. http://localhost:8080/?shortURL=1
-GET "/" with a longURL parameter in the query string.
--> return shortURL
-e.g. http://localhost:8080/?longURL=www.google.com
+1. RESTful API design 
+GET http://localhost:8080/2
+->
+{
+  "shortURL": "2",
+  "longURL": "www.facebook.com"
+}
 
-1. RESTful API design (Do I need REST?)
-POST "/shortURL" with a shortURL parameter in the query string.
--> return 307 response with JSON in the body { "longURL" : "www.google.com" }
-POST "/longURL" with a longURL parameter in the query string.
--> return 200 response with JSON in the body { "shortURL" : "0123E2" }
+POST http://localhost:8080/
+{
+	"longURL":"www.airbnb.com"
+}
+->
+{
+  "shortURL": "3",
+  "longURL": "www.airbnb.com"
+}
 
 2. Create a resource representation class
-TinyURL
+class TinyURL
+----------------------------
+-shortURL:String 
+-longURL:String
+----------------------------
++getShortURL():String
++getLongURL():String
 
-3. Create a resource controller
+3. create main rest controller
+
+4. create TinyURL service
+-> why constructor doesn't work?
 
 4. Database Design
 
