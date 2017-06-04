@@ -1,11 +1,9 @@
 package com.jianyulu.TinyURLService.controllers;
 
+import com.jianyulu.TinyURLService.models.TinyURL;
 import com.jianyulu.TinyURLService.services.TinyURLService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by lujianyu on 5/29/17.
@@ -13,26 +11,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TinyURLController {
 
-    private final TinyURLService tinyURLService;
-
     @Autowired
-    public TinyURLController(TinyURLService tinyURLService) {
-        this.tinyURLService = tinyURLService;
+    private TinyURLService tinyURLService;
+
+    @RequestMapping(value = "/{shortURL}", method = RequestMethod.GET)
+    public TinyURL read(@PathVariable(name = "shortURL") String shortURL) {
+        if (shortURL != null) {
+            return new TinyURL(shortURL, tinyURLService.read(shortURL));
+        } else {
+            return new TinyURL();
+        }
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String write(@RequestParam(value = "shortURL", defaultValue = "without shortURL") String shortURL, @RequestParam(value = "longURL", defaultValue = "without longURL") String longURL) {
-        if (!shortURL.equals("without shortURL")) {
-            // exsist shortURL
-            longURL = tinyURLService.read(shortURL);
-            return longURL;
-        } else if (!longURL.equals("without longURL")){
-            // exsist longURL
-            shortURL = tinyURLService.write(longURL);
-            return shortURL;
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public TinyURL write(@RequestBody TinyURL tinyURL) {
+        if (tinyURL.getLongURL() != null) {
+            String longURL = tinyURL.getLongURL();
+            return new TinyURL(tinyURLService.write(longURL), longURL);
         } else {
-            return "without valid parameter";
+            return new TinyURL();
         }
-
     }
 }
