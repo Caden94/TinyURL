@@ -1,20 +1,22 @@
 1. RESTful API design 
-GET http://localhost:8080/2
-->
-{
-  "shortURL": "2",
-  "longURL": "www.facebook.com"
-}
-
-POST http://localhost:8080/
-{
-	"longURL":"www.airbnb.com"
-}
-->
-{
-  "shortURL": "3",
-  "longURL": "www.airbnb.com"
-}
+	1.1
+	GET http://localhost:8080/2
+	->
+	{
+	  "shortURL": "2",
+	  "longURL": "www.facebook.com"
+	}
+	
+	1.2
+	POST http://localhost:8080/
+	{
+		"longURL":"www.airbnb.com"
+	}
+	->
+	{
+	  "shortURL": "3",
+	  "longURL": "www.airbnb.com"
+	}
 
 2. Create a resource representation class
 class TinyURL
