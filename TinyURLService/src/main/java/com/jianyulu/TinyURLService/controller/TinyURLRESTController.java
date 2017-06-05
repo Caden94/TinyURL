@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class TinyURLRESTController {
 
-    @Autowired
     private TinyURLService tinyURLService;
+
+    @Autowired
+    public TinyURLRESTController(TinyURLService tinyURLService) {
+        this.tinyURLService = tinyURLService;
+    }
 
     @RequestMapping(value = "/{shortURL}", method = RequestMethod.GET)
     public TinyURL read(@PathVariable(name = "shortURL") String shortURL) {
