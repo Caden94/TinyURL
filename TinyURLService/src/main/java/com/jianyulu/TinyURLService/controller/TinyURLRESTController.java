@@ -1,6 +1,7 @@
 package com.jianyulu.TinyURLService.controller;
 
 import com.jianyulu.TinyURLService.model.TinyURL;
+import com.jianyulu.TinyURLService.model.TinyURLREST;
 import com.jianyulu.TinyURLService.service.TinyURLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,21 +20,21 @@ public class TinyURLRESTController {
     }
 
     @RequestMapping(value = "/{shortURL}", method = RequestMethod.GET)
-    public TinyURL read(@PathVariable(name = "shortURL") String shortURL) {
+    public TinyURLREST read(@PathVariable(name = "shortURL") String shortURL) {
         if (shortURL != null) {
-            return new TinyURL(shortURL, tinyURLService.read(shortURL));
+            return new TinyURLREST(shortURL, tinyURLService.read(shortURL));
         } else {
-            return new TinyURL();
+            return new TinyURLREST();
         }
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public TinyURL write(@RequestBody TinyURL tinyURL) {
-        if (tinyURL.getLongURL() != null) {
-            String longURL = tinyURL.getLongURL();
-            return new TinyURL(tinyURLService.write(longURL), longURL);
+    public TinyURLREST write(@RequestBody TinyURLREST tinyURLREST) {
+        if (tinyURLREST.getLongURL() != null) {
+            String longURL = tinyURLREST.getLongURL();
+            return new TinyURLREST(tinyURLService.write(longURL), longURL);
         } else {
-            return new TinyURL();
+            return new TinyURLREST();
         }
     }
 }
