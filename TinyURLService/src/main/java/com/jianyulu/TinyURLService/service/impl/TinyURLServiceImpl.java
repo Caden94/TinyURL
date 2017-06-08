@@ -61,6 +61,6 @@ public class TinyURLServiceImpl implements TinyURLService {
     }
 
     private long toBase10(long n, long pow) {
-        return n * (long) Math.pow(10, pow);
+        return n * (long) Math.pow(62, pow);
     }
 }
