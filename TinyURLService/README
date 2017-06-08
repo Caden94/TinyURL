@@ -19,7 +19,7 @@
 	  "longURL": "www.airbnb.com"
 	}
 	1.3
-	POST http://localhost:8080/longURL
+	POST http://localhost:8080/longURLs
 	[
 		{ "longURL":"www.airbnb.com"},
 		{ "longURL":"www.facebook.com"},
