@@ -1,4 +1,6 @@
-"""I am using h2 database instead of in-memory Map version."""
+# h2 database instead of in-memory Map version
+# Lombok auto-generate constructer, getter and setter before compile. IDE should install Lombok plugin.
+
 1. RESTful API design 
 	1.1
 	GET http://localhost:8080/2
